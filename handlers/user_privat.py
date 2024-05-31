@@ -1,21 +1,23 @@
 from aiogram.filters import CommandStart, Command
 from aiogram import types, Router, F
+from keyboards import reply
+
 
 user_router = Router()
 
 @user_router.message(CommandStart())
 async def start(message: types.Message):
-    await message.answer("Привет это бот по продаже свежих яиц!!")
+    await message.answer("Привет это бот по продаже свежих яиц!!", reply_markup=reply.start_kb)
 
 @user_router.message(F.text.lower() == 'меню')
 @user_router.message(Command('menu'))
 async def menu(message: types.Message):
-    await message.answer("Вот наше меню")
+    await message.answer("Вот наше меню", reply_markup=reply.menu_kb)
 
 @user_router.message(F.text.lower() == 'о нас')
 @user_router.message(Command('about'))
 async def about(message: types.Message):
-    await message.answer("Продаем свежие яйца!!")
+    await message.answer("Продаем свежие яйца!!", reply_markup=reply.kontackts_kb)
 
 @user_router.message(F.text.lower() == 'контакты')
 @user_router.message(Command('contacts'))
