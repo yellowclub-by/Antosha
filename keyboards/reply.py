@@ -17,6 +17,10 @@ start_kb = ReplyKeyboardMarkup(
     input_field_placeholder='Категории'
 
 )
+
+
+back_btn = KeyboardButton(text='Назад')
+
 menu_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
@@ -25,7 +29,10 @@ menu_kb = ReplyKeyboardMarkup(
         ],
         [KeyboardButton(text='Сырые'),
         KeyboardButton(text='Готовые')
-         ]
+         ],
+        [back_btn
+
+        ]
 
     ],
     resize_keyboard=True,

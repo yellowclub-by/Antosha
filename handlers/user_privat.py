@@ -30,6 +30,10 @@ async def adreses(message: types.Message):
     await message.answer("Улица Пушкина Дом Колотушкина")
 
 
+@user_router.message(F.text.lower() == 'назад')
+async def back_menu(message: types.Message):
+    await message.answer("Главное меню.",reply_markup=reply.start_kb)
+
 # @user_router.message(F.text)
 # @user_router.message(F.photo)
 # @user_router.message(F.text.lower() == 'доставка')
@@ -37,7 +41,7 @@ async def adreses(message: types.Message):
 # @user_router.message(F.text.lower().startswith('как'))
 # @user_router.message(F.text.lower().endswith('?'))
 # @user_router.message(F.text.lower().startswith('как'), F.text.lower().endwiths('?'))
-# @user_router.message((F.text.lower().contains('стоимост')) | (F.text.lower().contains('цен')))
+# @user_router.message((F.text.lower().contains('стоимост')) | (F.text.loweбontains('цен')))
 
 
 async def echo(message: types.Message):
